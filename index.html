@@ -68,10 +68,12 @@ function reacts(){
 	console.log(days);
 	console.log(days2);
 	if (days2 > 0){
+		document.getElementsByClassName("myImage")[0].src = "8ball2.png";
 		document.getElementById('reactor').innerHTML="The 8ball will be unlocked in " + days + " days. Meanwhile, submit a prediction for 2030!";
 		//if its before 2020
 	}
 	else if (days2 < 0 && days > 0){
+		document.getElementsByClassName("myImage")[0].src = "8ball2.png";
 		document.getElementById('reactor').innerHTML="The 8ball will be unlocked in " + days + " days.";
 		//if its before 2030
 	} else {
