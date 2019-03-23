@@ -2,24 +2,124 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" type="text/css" href="styles.css" >
-  <title>ewww</title>
-
-<script>
-console.log("hey everyone");
-
-</script>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="bootstrap.css" >
+<!--	this is what helps with formatting for the input boxes!!!! ^^^^^^-->
+<link rel="stylesheet" type="text/css" href="style.css" >
+<title>Predictions of 2020</title>
+<script src="jquery.js"></script>
+	
 </head>
 
 <body>
-<h1> scrOme </h1>
-<h2><strong> dats big dawg </strong></h2>
-<p> YOOOO </p>
+<div id="main">
+  <div id="header">
+The Cursed 8ball of 2020 Predictions
+  </div>
+	<!--title thing^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->t
+	
+<div id="ball">
+  <div id="image" onclick="reacts() ">
+    <img src="8ball.png" class = "myImage" alt="The Eight Ball" width="50%;">
+	  <div id="reactor">
+    </div>
+	</div>
+	
+  </div>
+<!--this is the image ^^^-->
+	
+	<div id="reactor2">
+	</div>
+<!--this is the subtitle, text located in javascript at the bottom of the page^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->
+	
+<div id="input">  
+<div id="form1"><div class="input-group mb-3">
+    <input type="text" class="form-control" id="myForm1" placeholder="What's the future like in 2030?" aria-label="Future" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" onclick="future()" >Enter</button>
+    </div></div></div>
+	
+	<div id="form2"><div class="input-group mb-3">
+    <input type="text" class="form-control" id="myForm2" placeholder="Enter Your Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" onclick="email()" >Enter</button>
+    </div></div>
+  </div>
+</div>
+<!--	these are the input forms^^^^^^^^^^^^^^^^^^^^^^-->
 
 
+</div>
+	
+<script>
+		
+"use strict";
+	var currentTime = new Date();
+	var countDownDate = new Date("Apr 20, 2030 12:00:00").getTime();
+	var countDownDate2 = new Date("Apr 20, 2020 12:00:00").getTime();
+	var distance = countDownDate - currentTime;
+	var distance2 = countDownDate2 - currentTime;
+	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	var days2 = Math.floor(distance2 / (1000 * 60 * 60 * 24));
+	
+	
+function reacts(){
+		console.log("reacts1 check");
+	console.log(days);
+	console.log(days2);
+	if (days2 > 0){
+		document.getElementById('reactor').innerHTML="The 8ball will be unlocked in " + days + " days. Meanwhile, submit a prediction for 2030!";
+		//if its before 2020
+	}
+	else if (days2 < 0 && days > 0){
+		document.getElementById('reactor').innerHTML="The 8ball will be unlocked in " + days + " days.";
+		//if its before 2030
+	} else {
+		document.getElementsByClassName("myImage")[0].src = "8ball2.png";
+		document.getElementById('reactor').innerHTML="dummy prediction goes here.";
+		//if its past 2030
+	}
+	}
+//	this is what we get when pressing on the image 
+	
+function reacts2(){
+	
+	console.log("reacts2 check");
+	if (days2 > 0){
+		document.getElementById('reactor2').innerHTML = "The 8ball is a time capsule of people's predictions/hopes/fears for the future. What are you expecting for 2030? Submit a future that we might see in ten years! Submissions are anonymous, but you can sign up to be notified when the 8ball is unlocked. The 8ball is open for submissions until 4/20/20.";
+		document.getElementById('input').style.display = "block";
+		document.getElementById('form1').style.display = "block";
+		document.getElementById('form2').style.display = "block";
+		//if its before 2020
+	} 
+	else if (days2 < 0 && days > 0){
+		document.getElementById('reactor2').innerHTML = "On April 20, 2030, this 8ball will be unlocked to reveal strangers' predictions from 10 years prior. Sign up to recieve an email when it is unlocked.";
+		document.getElementById('form1').style.display = "none";
+		document.getElementById('form2').style.display = "block";
+		//if its before 2030
+	}
+	
+	else {
+		document.getElementById('reactor2').innerHTML = "After 10 long years of protecting the secrets of humanity, the 8ball has been unlocked. Press on the ball to get a random prediction from a wondering soul from 2019-2020.";
+			document.getElementById('form1').style.display = "none";
+		document.getElementById('form2').style.display = "none";
+		//if its past 2030
+		}
+	
+	}
+	
+	reacts2();
+//this is what controls the display of the subtitle and the input boxes
+	
+function email(){
+	
+}
 
-
+function future(){
+	
+}
+	
+	
+</script>
 </body>
 </html>

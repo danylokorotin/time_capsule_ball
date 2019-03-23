@@ -1,0 +1,115 @@
+
+body {background-color: darkred;}
+
+#main{
+  margin: auto;
+  position: absolute;
+  font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	display:inline-block;
+	 vertical-align: middle;
+	width:100%;
+}
+
+#header{
+  margin:0 auto;
+text-align: center;
+
+	font-size:100px;
+	color:black;
+	 vertical-align: middle;
+	width:60%;
+}
+
+#ball{
+  margin:0 auto;
+text-align: center;
+ vertical-align: middle;
+}
+
+#image{
+	position:relative;
+  margin:0 auto;
+text-align: center;
+display:inline-block;
+	width: 55%;
+	 vertical-align: middle;
+}
+
+
+#reactor{
+	color:white;
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#reactor2{
+	width:40%;
+  	margin:0 auto;
+	text-align: center;
+	font-size:30;
+	font-color:grey;
+	margin-top:25px;
+	 vertical-align: middle;
+	
+}
+
+#input{
+		width:50%;
+  	margin:0 auto;
+	text-align: center;
+	font-size:30;
+	font-color:grey;
+	margin-top:25px;
+	 vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#clock{
+
+
+   margin: auto;
+   position: absolute;
+   top: 0; left: 0; bottom: 0; right: 0;
+
+position:absolute;
+   font-family: monospace;
+   text-align: center;
+   display:inline-block;
+   color: white;
+   font-size: 50px;
+   background-color:yellow;
+   overflow: hidden;
+}
+
+#clock2{
+height:100%;
+  margin:0 auto;
+text-align: center;
+display:inline-block;
+width:auto;
+display: block;
+ vertical-align: middle;
+}
+
+#clock3{
+height : 50%;
+  margin-left: auto;
+ margin-right: auto;
+ width: 50%;
+}
