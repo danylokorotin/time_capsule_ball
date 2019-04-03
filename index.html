@@ -19,7 +19,7 @@ The Cursed 8ball of 2020 Predictions
 	<!--title thing^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^-->t
 
 <div id="ball">
-  <div id="image" onclick="reacts() ">
+  <div id="image" onclick="reacts(); RandomDisplay()">
     <img src="8ball.png" class = "myImage" alt="The Eight Ball" width="50%;">
 	  <div id="reactor">
     </div>
@@ -36,13 +36,13 @@ The Cursed 8ball of 2020 Predictions
 <div id="form1"><div class="input-group mb-3">
     <input type="text" class="form-control" id="myForm1" placeholder="What's the future like in 2030?" aria-label="Future" aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button" onclick="future()" >Enter</button>
+      <button class="btn btn-outline-secondary" type="button" onclick="AddPrediction()" >Enter</button>
     </div></div></div>
 
 	<div id="form2"><div class="input-group mb-3">
     <input type="text" class="form-control" id="myForm2" placeholder="Enter Your Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button" onclick="email()" >Enter</button>
+      <button class="btn btn-outline-secondary" type="button" onclick="AddEmail()" >Enter</button>
     </div></div>
   </div>
 </div>
@@ -51,12 +51,16 @@ The Cursed 8ball of 2020 Predictions
 
 </div>
 
+
+
+
+
 <script>
 
 "use strict";
 	var currentTime = new Date();
-	var countDownDate = new Date("Apr 20, 2030 12:00:00").getTime();
-	var countDownDate2 = new Date("Apr 20, 2020 12:00:00").getTime();
+	var countDownDate = new Date("Apr 20, 2005 12:00:00").getTime();
+	var countDownDate2 = new Date("Apr 20, 2004 12:00:00").getTime();
 	var distance = countDownDate - currentTime;
 	var distance2 = countDownDate2 - currentTime;
 	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -78,7 +82,7 @@ function reacts(){
 		//if its before 2030
 	} else {
 		document.getElementsByClassName("myImage")[0].src = "8ball2.png";
-		document.getElementById('reactor').innerHTML="dummy prediction goes here.";
+		document.getElementById('reactor').innerHTML="";
 		//if its past 2030
 	}
 	}
@@ -103,8 +107,8 @@ function reacts2(){
 
 	else {
 		document.getElementById('reactor2').innerHTML = "After 10 long years of protecting the secrets of humanity, the 8ball has been unlocked. Press on the ball to get a random prediction from a wondering soul from 2019-2020.";
-			document.getElementById('form1').style.display = "none";
-		document.getElementById('form2').style.display = "none";
+			document.getElementById('form1').style.display = "block";
+		document.getElementById('form2').style.display = "block";
 		//if its past 2030
 		}
 
@@ -113,14 +117,45 @@ function reacts2(){
 	reacts2();
 //this is what controls the display of the subtitle and the input boxes
 
-function email(){
+
+
+var predictions = [];
+
+var charLimit = 20;
+
+document.getElementById("demo").innerHTML = predictions;
+
+
+
+function AddPrediction() { //This adds in the typed submission to our array of predictions
+
+  var testPre = document.getElementById("myForm1").value;
+
+  if(testPre.length > 0 && testPre.length < charLimit){ //Character Limit check
+
+    predictions.push(testPre); //Pushes string into the array for access by 8-ball
+
+    document.getElementById("demo").innerHTML = predictions[predictions.length-1];
+
+    document.getElementById("myForm1").value='';
+
+  }else{ //If it exceeds limit, denies the entry into the array
+
+    document.getElementById("demo").innerHTML = "denied";
+
+
+
+  }
 
 }
 
-function future(){
+function RandomDisplay(){ //This function displays a random string from the array
+
+  var randNumber = Math.floor(Math.random() * predictions.length);
+
+  document.getElementById("reactor").innerHTML = predictions[randNumber];
 
 }
-
 
 </script>
 </body>
