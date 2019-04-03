@@ -68,9 +68,7 @@ The Cursed 8ball of 2020 Predictions
 
 
 function reacts(){
-		console.log("reacts1 check");
-	console.log(days);
-	console.log(days2);
+
 	if (days2 > 0){
 		document.getElementsByClassName("myImage")[0].src = "8ball2.png";
 		document.getElementById('reactor').innerHTML="The 8ball will be unlocked in " + days + " days. Meanwhile, submit a prediction for 2030!";
@@ -123,9 +121,6 @@ var predictions = [];
 
 var charLimit = 20;
 
-document.getElementById("demo").innerHTML = predictions;
-
-
 
 function AddPrediction() { //This adds in the typed submission to our array of predictions
 
@@ -135,9 +130,30 @@ function AddPrediction() { //This adds in the typed submission to our array of p
 
     predictions.push(testPre); //Pushes string into the array for access by 8-ball
 
-    document.getElementById("demo").innerHTML = predictions[predictions.length-1];
 
     document.getElementById("myForm1").value='';
+
+  }else{ //If it exceeds limit, denies the entry into the array
+
+    document.getElementById("demo").innerHTML = "denied";
+
+
+
+  }
+
+}
+//i didn't modify this too much
+function AddEmail() { //This adds in the typed submission to our array of predictions
+
+  var testPre = document.getElementById("myForm2").value;
+
+  if(testPre.length > 0 && testPre.length < charLimit){ //Character Limit check
+
+    predictions.push(testPre); //Pushes string into the array for access by 8-ball
+
+
+
+    document.getElementById("myForm2").value='';
 
   }else{ //If it exceeds limit, denies the entry into the array
 
@@ -154,6 +170,10 @@ function RandomDisplay(){ //This function displays a random string from the arra
   var randNumber = Math.floor(Math.random() * predictions.length);
 
   document.getElementById("reactor").innerHTML = predictions[randNumber];
+
+
+
+
 
 }
 
