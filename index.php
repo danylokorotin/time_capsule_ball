@@ -100,8 +100,8 @@
 
 "use strict";
 	var currentTime = new Date();
-	var countDownDate = new Date("Apr 20, 2012 12:00:00").getTime();
-	var countDownDate2 = new Date("Apr 20, 2010 12:00:00").getTime();
+	var countDownDate = new Date("Apr 20, 2030 12:00:00").getTime();
+	var countDownDate2 = new Date("Apr 20, 2020 12:00:00").getTime();
 	var distance = countDownDate - currentTime;
 	var distance2 = countDownDate2 - currentTime;
 	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
