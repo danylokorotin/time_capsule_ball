@@ -37,6 +37,7 @@ text-align: center;
 display:inline-block;
 	width: 100%;
 	 vertical-align: middle;
+	pointer-events: none;
 }
 
 /*
@@ -66,20 +67,20 @@ vvv this is the text in 8ball vvv */
 	margin-top:-70%;
 	 vertical-align: middle;
 	z-index:20;
-
+	
   }
 
 #input{
 	position:absolute;
-		width:80%;
+		width:70%;
   margin-left:10%;
 	margin-top:4%;
 	text-align: center;
 	font-size:30;
 	font-color:grey;
-
-
-
+	
+	 
+	
 }
 
 #theimage{
@@ -87,7 +88,7 @@ vvv this is the text in 8ball vvv */
 	z-index:10;
 	position: relative;
 margin-top:-1%;
-	pointer-events: none;
+	
 }
 #video2{
 	width:100%;
@@ -105,7 +106,7 @@ margin-top:-1%;
 	position: absolute;
 	cursor:help;
 margin-top:-1%;
-
+	
 }
 
 #firstvid{
@@ -113,11 +114,11 @@ margin-top:-1%;
 }
 
 	.videos{
-		pointer-events: none;
+		
 		position: relative;
 		display:inline-block;
-
+		
 		z-index:5;
 		width:100%;
-
+			
 		}

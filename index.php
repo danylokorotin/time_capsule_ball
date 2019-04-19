@@ -18,25 +18,25 @@
 
 
 
-<div id="ball">
-  <div id="image" onclick="reacts(); setNext(); RandomDisplay();">
-
-	  <div class="videos">
-
-<video id="video2" width="100%" data-setup="{}">
+<div id="ball" style="pointer-events: none;">
+  <div id="image" style="pointer-events: none;" >
+    	
+	  <div class="videos" style="pointer-events: none;"> 
+		 
+<video id="video2" width="100%" data-setup="{}" onclick=" setNext(); RandomDisplay();" style="pointer-events:all;">
   <source src="8ball2.mp4" type="video/mp4">
 
 </video>
-
-
-	<div id="firstvid" ><video id="video" width="100%" data-setup="{}">
-  <source src="8ball2.mp4" type="video/mp4">
+	
+	
+	<div id="firstvid"  ><video id="video" width="100%" data-setup="{}" onclick="reacts2(); " style="pointer-events:all;">
+  <source src="8ball1.mp4" type="video/mp4">
 
 </video></div>
-
-	  <div id="theimage">
-		 <img src="8ball.png" class = "myImage" alt="The Eight Ball" width="100%;" >
-
+	  
+	  <div id="theimage" style="pointer-events: none;">
+		 <img src="8ball.png" class = "myImage" alt="The Eight Ball" width="100%;" style="pointer-events: none;">
+	
 	</div></div>
 	  <div id="reactor">
     </div>
@@ -58,7 +58,7 @@
 
 		<div id="input">
 		<div id="form1"><div class="input-group mb-3">
-		  <form name = "register" action = "process.php" method = "post">
+		  <form name = "register"  action = "process.php" method = "post" >
 
 		        <?php
 		  if(isset($error))
@@ -67,9 +67,9 @@
 		  }
 		         ?>
 
-		<input type ="text" name = "predict" placeholder="What's the future like in 2030?"aria-label="Recipient's username" aria-describedby="basic-addon2" size="70%" maxlength="100"/>
-		<input type ="text" name = "email" placeholder="Enter Email"aria-label="Recipient's username" aria-describedby="basic-addon2" size="70%"/>
-	  <input type = "submit" name ="submit" value="Enter"/></p>
+		<input type ="text" class="form-control" name = "predict" placeholder="What's the future like in 2030?"aria-label="Recipient's username" aria-describedby="basic-addon2" width="100%" maxlength="100"/>
+		  
+			  <input class="btn btn-outline-secondary" type = "submit" name ="submit" value="Enter"/></p>
 
 		  <?php
 		  if(isset($message))
@@ -78,7 +78,7 @@
 		  }
 		   ?>
 
-		 </div>
+			</div></div></div>
 <!--
 	<div id="form2"><div class="input-group mb-3">
     <input type="text" class="form-control" id="myForm2" placeholder="Enter Your Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -100,8 +100,8 @@
 
 "use strict";
 	var currentTime = new Date();
-	var countDownDate = new Date("Apr 20, 2029 12:00:00").getTime();
-	var countDownDate2 = new Date("Apr 20, 2019 12:00:00").getTime();
+	var countDownDate = new Date("Apr 20, 2012 12:00:00").getTime();
+	var countDownDate2 = new Date("Apr 20, 2010 12:00:00").getTime();
 	var distance = countDownDate - currentTime;
 	var distance2 = countDownDate2 - currentTime;
 	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -113,26 +113,32 @@ function reacts(){
 	if (days2 > 0){
 
 		document.getElementById('reactor').innerHTML=days + " days left.";
+		document.getElementById('input').style.display = "block";
+		document.getElementById('form1').style.display = "block";
 		//if its before 2020
 	}
 	else if (days2 < 0 && days > 0){
 
 		document.getElementById('reactor').innerHTML=days + " days left.";
+		document.getElementById('form1').style.display = "none";
+		
 		//if its before 2030
 	} else {
 
 		document.getElementById('reactor').innerHTML="Unlocked!";
+		document.getElementById('form1').style.display = "none";
+		
 		//if its past 2030
 	}
 	}
 //	this is what we get when pressing on the image
 reacts();
 function reacts2(){
-
-	setTimeout(reactsagain, 20);
+document.getElementById('video').play();
+	setTimeout(reactsagain, 2100);
 	function reactsagain(){
 	if (days2 > 0){
-		document.getElementById('reactor2').innerHTML = "The 8ball is a time capsule of people's predictions/hopes/fears for the future. What are you expecting for 2030? Submit a future that we might see in ten years! Submissions are anonymous, but you can sign up to be notified when the 8ball is unlocked. The 8ball is open for submissions until 4/20/20.";
+		document.getElementById('reactor2').innerHTML = "The 8ball is a time capsule of people's predictions/hopes/fears for the future. What are you expecting for 2030? Submit a future that we might see in ten years! Submissions are anonymous and the 8ball is open for them until 4/20/20.";
 		document.getElementById('input').style.display = "block";
 		document.getElementById('form1').style.display = "block";
 	//	document.getElementById('form2').style.display = "block";
@@ -141,7 +147,7 @@ function reacts2(){
 	else if (days2 < 0 && days > 0){
 		document.getElementById('reactor2').innerHTML = "On April 20, 2030, this 8ball will be unlocked to reveal strangers' predictions from 10 years prior.";
 		document.getElementById('form1').style.display = "none";
-		//document.getElementById('form2').style.display = "block";
+//		document.getElementById('form2').style.display = "block";
 		//if its before 2030
 	}
 
@@ -151,10 +157,10 @@ function reacts2(){
 		//document.getElementById('form2').style.display = "block";
 		//if its past 2030
 		}
-
+document.getElementById('video').style.pointerEvents = "none";
 	}}
 
-	reacts2();
+	
 //this is what controls the display of the subtitle and the input boxes
 
 
@@ -204,7 +210,7 @@ setTimeout(rand, 2400);
     var maybe = data[0].predict;
     console.log(maybe);*/
 		document.getElementById("reactor2").innerHTML = ' ';
-		setTimeout(rand, 2400);
+		setTimeout(rand, 2100);
 		function rand(){
     for(var i=0;i<data.length;i++){
       var thisPrediction = data[i].predict;
@@ -219,11 +225,11 @@ setTimeout(rand, 2400);
 
 }
 var video2 = document.getElementById('video2');
-var video1 = document.getElementById('video');
+
 var x = document.getElementById('firstvid');
 
 
-video1.play();
+
 function setNext() {
 	if(days < 0){
 
